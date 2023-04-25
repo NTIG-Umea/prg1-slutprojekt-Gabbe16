@@ -4,6 +4,11 @@ Slutprojekt programmering 1.
 
 ## Vad
 
+Notepad klon med fler funktioner
+
+Min plan är att göra om och lägga till mer funktioner till notepad klonen från en gammal uppgift.
+
+
 Din uppgift är att planera, genomföra och dokumentera ett programmeringsprojekt.
 
 Du får välja projekt själv, det kan vara något helt nytt eller en vidareutveckling av något som du redan gjort. Kravet är 
