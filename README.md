@@ -24,7 +24,7 @@ Min plan är att lägga till följande:
 
 ## Lösning för problem
 
-Att ändra typsnitt, storlek, fet/kursiv/understruken och färg på text kan lösas genom att manipulera textarea på olika sätt. Att kunna ha flera olika flikar uppe kan fixas med hjälp av java sidan för gui och sedan experimentera. Sök och ersätt har jag nästan fixat från ett annat projekt så det är bara att göra om den från början och fixa till.
+Att ändra typsnitt, storlek, fet/kursiv/understruken och färg på text kan lösas genom att manipulera en textarea på olika sätt med knappar som utför dessa saker. Att kunna ha flera olika flikar uppe kan fixas med hjälp av java sidan för gui och sedan experimentera. Sök och ersätt har jag nästan fixat från ett annat projekt så det är bara att göra om den från början och fixa till.
 
 
 
