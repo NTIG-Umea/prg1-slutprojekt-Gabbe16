@@ -12,7 +12,7 @@ Min plan är att göra om och lägga till mer funktioner till notepad klonen fr�
 
 Min plan är att lägga till följande den gamla notepad klonen:
 
-* Göra om koden från min gamla notepadklon
+* Göra om koden från min gamla notepad klon
 
 * Ändring av typsnitt, storlek och fet/kursiv/understruken på text
 
