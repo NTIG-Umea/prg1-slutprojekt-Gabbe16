@@ -4,7 +4,7 @@ Slutprojekt programmering 1.
 
 ## Planering
 
-Notepad klon med fler funktioner
+Notepad klon med fler funktioner.
 
 Min plan är att göra om och lägga till mer funktioner till notepad klonen från en gammal uppgift.
 
