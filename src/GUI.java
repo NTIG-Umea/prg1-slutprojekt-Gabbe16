@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class GUI {
 
@@ -10,6 +14,28 @@ public class GUI {
     private JButton button2;
     private JButton button1;
     private JButton button3;
+
+    private void Open() {
+        String filename = JOptionPane.showInputDialog("Write the name of the file you want to open");
+        filename = filename + ".txt";
+        BufferedReader in = null;
+        try {
+            in = new BufferedReader(new FileReader(filename));
+        } catch (FileNotFoundException ex) {
+            return;
+        }
+        String nextLine = null;
+        try {
+            nextLine = in.readLine();
+            while (nextLine != null) {
+                textArea1.append(nextLine + "\n");
+                nextLine = in.readLine();
+            }
+        } catch (IOException ex) {
+            textArea1.setText("");
+        }
+
+    }
 
     public JMenuBar createMenuBar() {
         JMenuBar menuBar;
@@ -26,10 +52,10 @@ public class GUI {
         menuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Open();
             }
         });
-
+å
         menu.add(menuItem);
 
         menuItem = new JMenuItem("Save");
