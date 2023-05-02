@@ -48,6 +48,10 @@ public class GUI {
         out.close();
     }
 
+    private void New() {
+        textArea1.setText("");
+    }
+
     public JMenuBar createMenuBar() {
         JMenuBar menuBar;
         JMenu menu, submenu;
@@ -85,7 +89,7 @@ public class GUI {
         menuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                New();
             }
         });
 
