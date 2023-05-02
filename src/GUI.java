@@ -2,10 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class GUI {
 
@@ -37,6 +34,20 @@ public class GUI {
 
     }
 
+    private void Save() {
+        String filename = JOptionPane.showInputDialog("Name your file");
+        filename = filename + ".txt";
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(new BufferedWriter(new FileWriter(filename)));
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Failed to save");
+        }
+        out.println(textArea1.getText());
+        out.flush();
+        out.close();
+    }
+
     public JMenuBar createMenuBar() {
         JMenuBar menuBar;
         JMenu menu, submenu;
@@ -55,7 +66,7 @@ public class GUI {
                 Open();
             }
         });
-å
+
         menu.add(menuItem);
 
         menuItem = new JMenuItem("Save");
@@ -63,7 +74,7 @@ public class GUI {
         menuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Save();
             }
         });
 
