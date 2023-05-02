@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -9,8 +10,32 @@ public class GUI {
     private JPanel panel1;
     private JTextArea textArea1;
     private JButton button2;
-    private JButton button1;
-    private JButton button3;
+    private JButton searchButton;
+    private JButton fontButton;
+
+    public GUI() {
+        fontButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Object[] possibilities = {"Courier new", "DialogInput", "JetBrains Mono", "Fira Code", "Consolas"};
+                String s = (String)JOptionPane.showInputDialog(
+                        null,
+                        "Chose a font below:",
+                        "Pick a font",
+                        JOptionPane.PLAIN_MESSAGE,
+                        null,
+                        possibilities,
+                        "Courier new");
+
+                if ((s != null) && (s.length() > 0)) {
+                    String fontName = s;
+                    Font font = new Font(fontName, Font.PLAIN, 20);
+                    textArea1.setFont(font);
+                    return;
+                }
+            }
+        });
+    }
 
     private void Open() {
         String filename = JOptionPane.showInputDialog("Write the name of the file you want to open");
