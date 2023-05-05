@@ -1,3 +1,5 @@
+import jdk.nashorn.internal.scripts.JO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,9 +11,10 @@ public class GUI {
 
     private JPanel panel1;
     private JTextArea textArea1;
-    private JButton button2;
+    private JButton changeBackgroundButton;
     private JButton searchButton;
     private JButton fontButton;
+    private JButton replaceButton;
 
     public GUI() {
         fontButton.addActionListener(new ActionListener() {
@@ -20,8 +23,8 @@ public class GUI {
                 Object[] possibilities = {"Courier new", "DialogInput", "JetBrains Mono", "Fira Code", "Consolas"};
                 String s = (String)JOptionPane.showInputDialog(
                         null,
-                        "Chose a font below:",
-                        "Pick a font",
+                        "Choose a font below:",
+                        "Pick a new font",
                         JOptionPane.PLAIN_MESSAGE,
                         null,
                         possibilities,
@@ -33,6 +36,18 @@ public class GUI {
                     textArea1.setFont(font);
                     return;
                 }
+            }
+        });
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Search();
+            }
+        });
+        replaceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Replace();
             }
         });
     }
@@ -76,6 +91,42 @@ public class GUI {
     private void New() {
         textArea1.setText("");
     }
+
+    private void Search() {
+        String text = textArea1.getText();
+        String[] splitText = text.split("\n");
+        String searchedPhrase = JOptionPane.showInputDialog("Write what letter/letters you want to search for");
+        int i = 0;
+        while (i<splitText.length) {
+            if (splitText[i].contains(searchedPhrase)) {
+                int row = i + 1;
+                JOptionPane.showMessageDialog(null, searchedPhrase + " is on row " + row);
+            }
+            i++;
+        }
+    }
+
+    private void Replace() {
+        String currentText = textArea1.getText();
+        String[] splitText = currentText.split("\n");
+        String letterToBeReplaced = JOptionPane.showInputDialog("What letter/letters do you want to replace?");
+        String newLetter = JOptionPane.showInputDialog("What letter do you want to replace " + letterToBeReplaced + " with?");
+        int i = 0;
+        while (i<splitText.length) {
+            if (splitText[i].contains(letterToBeReplaced)) {
+                int currentPos = 0;
+                while (currentPos<splitText[i].length()) {
+                    if () {
+
+                    }
+                    currentPos++;
+                    }
+                }
+            }
+            i++;
+        }
+
+
 
     public JMenuBar createMenuBar() {
         JMenuBar menuBar;
