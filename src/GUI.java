@@ -1,5 +1,3 @@
-import jdk.nashorn.internal.scripts.JO;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,6 +13,7 @@ public class GUI {
     private JButton searchButton;
     private JButton fontButton;
     private JButton replaceButton;
+    private JButton changeTextcolorButton;
 
     public GUI() {
         fontButton.addActionListener(new ActionListener() {
@@ -48,6 +47,62 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Replace();
+            }
+        });
+        changeBackgroundButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Object[] possibilities = {"White", "LightGray", "Black"};
+                String s = (String)JOptionPane.showInputDialog(
+                        null,
+                        "Choose a color below:",
+                        "Pick a new color",
+                        JOptionPane.PLAIN_MESSAGE,
+                        null,
+                        possibilities,
+                        "0xFFFFFF");
+
+                if ((s != null) && (s.length() > 0)) {
+                    if (s == "White") {
+                        s = "0xFFFFFF";
+                    } else if (s == "LightGray") {
+                        s = "0xAAAAAA";
+                    } else if (s == "Black") {
+                        s = "0x000000";
+                    }
+
+                    String pickedColor = s;
+                    textArea1.setBackground(Color.decode(pickedColor));
+                    return;
+                }
+            }
+        });
+        changeTextcolorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Object[] possibilities = {"White", "LightGray", "Black"};
+                String z = (String)JOptionPane.showInputDialog(
+                        null,
+                        "Choose a color below:",
+                        "Pick a new color",
+                        JOptionPane.PLAIN_MESSAGE,
+                        null,
+                        possibilities,
+                        "0xFFFFFF");
+
+                if ((z != null) && (z.length() > 0)) {
+                    if (z == "White") {
+                        z = "0xFFFFFF";
+                    } else if (z == "LightGray") {
+                        z = "0xAAAAAA";
+                    } else if (z == "Black") {
+                        z = "0x000000";
+                    }
+
+                    String pickedColor = z;
+                    textArea1.setForeground(Color.decode(pickedColor));
+                    return;
+                }
             }
         });
     }
@@ -116,9 +171,9 @@ public class GUI {
             if (splitText[i].contains(letterToBeReplaced)) {
                 int currentPos = 0;
                 while (currentPos<splitText[i].length()) {
-                    if () {
+                   // if () {
 
-                    }
+                  //  }
                     currentPos++;
                     }
                 }
@@ -176,6 +231,7 @@ public class GUI {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("GUI");
+        frame.setSize(400,200);
         GUI gui = new GUI();
         frame.setContentPane(gui.panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
