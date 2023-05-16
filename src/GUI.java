@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.*;
+import java.util.ArrayList;
 
 public class GUI {
 
@@ -144,6 +145,11 @@ public class GUI {
     }
 
     private void New() {
+        ArrayList<String> TextList = new ArrayList<String>();
+        String savedtext = textArea1.getText();
+        TextList.add(savedtext);
+
+
         textArea1.setText("");
     }
 
@@ -167,19 +173,26 @@ public class GUI {
         String letterToBeReplaced = JOptionPane.showInputDialog("What letter/letters do you want to replace?");
         String newLetter = JOptionPane.showInputDialog("What letter do you want to replace " + letterToBeReplaced + " with?");
         int i = 0;
-        while (i<splitText.length) {
+        String newString = "";
+        textArea1.setText("");
+        while (i < splitText.length) {
             if (splitText[i].contains(letterToBeReplaced)) {
                 int currentPos = 0;
-                while (currentPos<splitText[i].length()) {
-                   // if () {
+                while (currentPos < splitText[i].length()) {
+                    if (splitText[i].charAt(currentPos) == letterToBeReplaced.charAt(0)) {
+                        newString = splitText[i].substring(0, currentPos) + newLetter + splitText[i].substring(currentPos + 1);
 
-                  //  }
-                    currentPos++;
                     }
+                    currentPos++;
                 }
+                textArea1.append(newString);
+            } else {
+                textArea1.append(splitText[i]);
             }
             i++;
         }
+    }
+
 
 
 
