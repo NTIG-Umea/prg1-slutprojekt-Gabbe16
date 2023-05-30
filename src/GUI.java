@@ -4,10 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.*;
-import java.util.ArrayList;
 
 public class GUI {
-
     private JPanel panel1;
     private JTextArea textArea1;
     private JButton changeBackgroundButton;
@@ -53,7 +51,7 @@ public class GUI {
         changeBackgroundButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Object[] possibilities = {"White", "LightGray", "Black"};
+                Object[] possibilities = {"White", "LightGray", "Black", "Lime", "Maroon", "Gold"};
                 String s = (String)JOptionPane.showInputDialog(
                         null,
                         "Choose a color below:",
@@ -70,6 +68,12 @@ public class GUI {
                         s = "0xAAAAAA";
                     } else if (s == "Black") {
                         s = "0x000000";
+                    } else if (s == "Lime") {
+                        s = "#7fff00";
+                    } else if (s == "Maroon") {
+                        s = "#b22222";
+                    } else if (s == "Gold") {
+                        s = "#daa520";
                     }
 
                     String pickedColor = s;
@@ -81,7 +85,7 @@ public class GUI {
         changeTextcolorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Object[] possibilities = {"White", "LightGray", "Black"};
+                Object[] possibilities = {"White", "LightGray", "Black", "Lime", "Maroon", "Gold"};
                 String z = (String)JOptionPane.showInputDialog(
                         null,
                         "Choose a color below:",
@@ -98,6 +102,12 @@ public class GUI {
                         z = "0xAAAAAA";
                     } else if (z == "Black") {
                         z = "0x000000";
+                    } else if (z == "Lime") {
+                        z = "#7fff00";
+                    } else if (z == "Maroon") {
+                        z = "#b22222";
+                    } else if (z == "Gold") {
+                        z = "#daa520";
                     }
 
                     String pickedColor = z;
@@ -145,11 +155,6 @@ public class GUI {
     }
 
     private void New() {
-        ArrayList<String> TextList = new ArrayList<String>();
-        String savedtext = textArea1.getText();
-        TextList.add(savedtext);
-
-
         textArea1.setText("");
     }
 
@@ -198,7 +203,7 @@ public class GUI {
 
     public JMenuBar createMenuBar() {
         JMenuBar menuBar;
-        JMenu menu, submenu;
+        JMenu menu;
         JMenuItem menuItem;
 
         menuBar = new JMenuBar();
