@@ -198,9 +198,6 @@ public class GUI {
         }
     }
 
-
-
-
     public JMenuBar createMenuBar() {
         JMenuBar menuBar;
         JMenu menu;
