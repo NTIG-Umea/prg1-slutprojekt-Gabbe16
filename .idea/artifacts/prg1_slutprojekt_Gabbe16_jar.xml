@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="prg1-slutprojekt-Gabbe16:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/prg1_slutprojekt_Gabbe16_jar</output-path>
+    <root id="archive" name="prg1-slutprojekt-Gabbe16.jar">
+      <element id="module-output" name="prg1-slutprojekt-Gabbe16" />
+    </root>
+  </artifact>
+</component>
